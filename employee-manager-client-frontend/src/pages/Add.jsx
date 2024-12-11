@@ -1,126 +1,68 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import * as employeeService from '../services/EmployeeService';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from '@clerk/clerk-react';  // Import Clerk's useUser hook
-
-
-const theme = createTheme();
+import * as employeeService from '../services/EmployeeService';
 
 export function Add() {
   const navigate = useNavigate();
-  const { id } = useParams();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const { user } = useUser();  // Get the current signed-in user
-  const [isUserLoaded, setIsUserLoaded] = useState(false);  // For checking if user data is loaded
-
-  useEffect(() => {
-    if (user) {
-      setIsUserLoaded(true);
-    }
-  }, [user]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!isUserLoaded) {
-      alert("User not logged in");
-      return;
-    }
-    
-    const data = new FormData(event.currentTarget);
-    const employee = {
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-      email: data.get('email'),
-      createdBy: user.id  // Include the Clerk user's ID as createdBy
-    };
+    const employee = { firstName, lastName, email };
 
     employeeService.createEmployee(employee)
       .then(response => {
         navigate("/");
-      })
-      .catch(error => {
-        console.error("Error creating employee:", error);
       });
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography component="h1" variant="h5">
-            Add Employee
-          </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Save
-            </Button>
-          </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
-   )
- };
+    <div className="flex justify-center items-center min-h-screen bg-[#EBEBEB]"> {/* Light background */}
+      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md"> {/* Rounded corners and shadow */}
+        <h1 className="text-2xl font-semibold text-center text-[#323232] mb-6">Add Employee</h1> {/* Darker title color */}
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="firstName" className="block text-sm font-medium text-[#6D6D6D]">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              className="w-full px-4 py-2 border border-[#829CD0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#20368F]" />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="lastName" className="block text-sm font-medium text-[#6D6D6D]">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              className="w-full px-4 py-2 border border-[#829CD0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#20368F]" />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="email" className="block text-sm font-medium text-[#6D6D6D]">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-4 py-2 border border-[#829CD0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#20368F]" />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-[#20368F] text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-[#000B4F] hover:bg-[#000B4F]">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
