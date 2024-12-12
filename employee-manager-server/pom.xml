@@ -75,6 +75,8 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>6.6.2.Final</version>
 		</dependency>
+	</dependencies>
+	<build>
     
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
