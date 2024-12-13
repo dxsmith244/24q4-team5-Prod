@@ -1,5 +1,10 @@
 com/employee_mgr_server/domain/core/exceptions/ResourceNotFoundException.class
-com/employee_mgr_server/domain/core/exceptions/ResourceCreationException.class
+com/employee_mgr_server/domain/employee/services/EmployeeService.class
 com/employee_mgr_server/EmployeeMgrServerApplication.class
+com/employee_mgr_server/domain/employee/models/Employee.class
+com/employee_mgr_server/domain/employee/controllers/EmployeeController.class
 com/employee_mgr_server/ReactController.class
 com/employee_mgr_server/WebConfiguration.class
+com/employee_mgr_server/domain/employee/services/EmployeeServiceImpl.class
+com/employee_mgr_server/domain/core/exceptions/ResourceCreationException.class
+com/employee_mgr_server/domain/employee/repos/EmployeeRepository.class

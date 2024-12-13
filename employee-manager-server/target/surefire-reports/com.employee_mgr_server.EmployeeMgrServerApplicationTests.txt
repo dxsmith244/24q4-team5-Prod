@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.employee_mgr_server.EmployeeMgrServerApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.504 s -- in com.employee_mgr_server.EmployeeMgrServerApplicationTests
