@@ -1,0 +1,10 @@
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/EmployeeMgrServerApplication.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/ReactController.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/WebConfiguration.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/domain/core/exceptions/ResourceCreationException.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/domain/core/exceptions/ResourceNotFoundException.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/domain/employee/controllers/EmployeeController.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/domain/employee/models/Employee.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/domain/employee/repos/EmployeeRepository.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/domain/employee/services/EmployeeService.java
+/Users/davidsmith/Documents/source/24q4-team5-Prod/employee-manager-server/src/main/java/com/employee_mgr_server/domain/employee/services/EmployeeServiceImpl.java
